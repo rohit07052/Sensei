@@ -1,0 +1,36 @@
+<h1 class="expHead">Experiences</h1>
+<div class="row">
+    {{#each experiences}}
+    <div class="parent">
+        <div class="col s12 m4 cardparent"> 
+            <div class="card front">
+                
+                <div class=" center-align">
+                    <div class="card-image">
+                    {{{ editIcon user ../user _id}}}
+                </div>
+                    <h5 class="company">{{truncate title 15}}</h5>
+                    
+                    <br>
+                    <div class="name">
+                        <img src= "{{user.image}}" alt="" class="enlarge">
+                        <br>
+                        <a href="/experiences/user/{{user._id}}" class="archortag">{{user.displayName}}</a>
+                    </div>
+
+                </div>
+                
+            </div>
+            <div class="card back">
+                <div class="card-action center-align">
+                    <p>{{stripTags (truncate body 180)}}</p>
+                    <br>
+                    <a href="/experiences/{{_id}}" class="btn white cardbtn" >Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <p>No experiences to display</p>
+    {{/each}}
+</div>

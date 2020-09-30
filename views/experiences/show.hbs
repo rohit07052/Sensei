@@ -1,0 +1,60 @@
+<body id=add-exp>
+<div class="container-show">
+  <div class="card-show">
+    <div class="border-show"></div>
+    <div class="stats-show show-edit nopadding">
+      <h3 class="add-shadow">{{experience.title}}
+           
+        </h3>
+    </div>
+    <hr />
+    <div class="avatar-show">
+            <!--image-->
+           <img src="{{experience.user.image}}" class = 'show-img'>
+    </div>
+    <hr />
+     
+    <div class="stats-show">
+      <h2><!--name-->{{experience.user.displayName}}</h2>
+      <hr />
+      <div>
+        <!--text-->
+        <span class="card-title">{{formatDate date 'MMMM Do YYYY, h:mm:ss a'}}</span>
+        {{{experience.body}}}
+        <hr />
+        
+            <a href="/experiences/user/{{experience.user._id}}" class='dec-anchor'>
+            <div class="last-buttons">
+                More From {{experience.user.firstName}}
+                </div>
+            </a>
+            
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--
+    <div class="col s12 m8">
+        <h3 class="had">{{experience.title}}
+            <small>{{{editIcon experience.user user experience._id false}}}</small>
+        </h3>
+       
+                
+                <img src="{{experience.user.image}}" class="profile-image">
+                <h1 class='exp-name'>{{experience.user.displayName}}</h1>
+        <div class="exp-css-parent">
+            <div class="exp-css">
+                <span class="card-title">{{formatDate date 'MMMM Do YYYY, h:mm:ss a'}}</span>
+                {{{experience.body}}}
+            </div>
+        </div>
+    </div>
+    <a href="/experiences/user/{{experience.user._id}}" class='dec-anchor'>
+        <div class="more-from">
+             More From {{experience.user.firstName}}
+        </div>
+    </a>
+-->
+</body>

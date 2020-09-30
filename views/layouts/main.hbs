@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensei</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/styles.css"/>
+    
+</head>
+<body class="forcanvas">
+    {{> _header}}
+    {{> _add_btn}}
+
+
+    <div class="container">
+        {{{body}}}
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.14.1/ckeditor.js"
+        integrity="sha256-bEIQpI72w9NJuIVhTLFUF2/8uxl0u5800r8ddViuv+o=" crossorigin="anonymous"></script>
+
+    <script>
+        M.Sidenav.init(document.querySelector('.sidenav'))
+        CKEDITOR.replace('body', {
+            startupFocus: true,
+            toolbar :
+                    [
+                    ['ajaxsave'],
+                    ['Bold', 'Italic', 'Underline', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink' ],
+                    ['Cut','Copy','Paste','PasteText'],
+                    ['Undo','Redo','-','RemoveFormat'],
+                    ['TextColor','BGColor'],
+                    //['Maximize', 'Image']
+                    ]
+//filebrowserUploadUrl : '/filemanager/index.html'
+
+         //   plugins: 'wysiwygarea, toolbar, basicstyles, link'
+            
+        })
+    </script>
+     <script src= 
+"https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"> 
+        </script> 
+        <script>
+
+
+            try{
+            //var card = document.querySelector(".cardparent");
+            var cards = document.querySelector(".row");
+            
+            var display = cards.querySelectorAll('.cardparent')
+            //console.log(display)
+            var playing = false;
+
+            for(let i = 0;i<display.length;i++){
+            display[i].addEventListener('click',function() {
+            if(playing)
+                return;
+            
+            playing = true;
+            anime({
+                    targets: display[i],
+                    scale: [{value: 1}, {value: 1.4}, {value: 1, delay: 250}],
+                    rotateY: {value: '+=180', delay: 200},
+                    easing: 'easeInOutSine',
+                    duration: 400,
+                    complete: function(anim){
+                    playing = false;
+                    }
+                });
+            });
+            }
+            }
+            catch(err){
+                console.log('in dashboard')
+            }
+
+            //for pop-up menu...
+            var anch = document.querySelectorAll("ul li");
+            //console.log(anch[0])
+            for (let i =0 ;i<anch.length;i++){
+            anch[i].addEventListener('mouseover',function() {
+       
+            //console.log('hey')
+      
+            anime({
+                    targets: anch[i],
+                    scale: {
+                    
+                    value: 2
+                    },
+                     duration: 100,
+                     easing: 'easeInOutQuad'
+                });
+            });
+            anch[i].addEventListener('mouseout',function() {
+           
+            //console.log('y0')
+     
+            anime({
+                    targets: anch[i],
+                    scale: {
+                    
+                    value: 1
+                    },
+                     duration: 100,
+                     easing: 'easeInOutQuad'
+                });
+            });
+
+        }
+            
+        var eleclick = document.querySelectorAll("#inputcheck");
+        var element = document.getElementsByClassName("toselect");
+        /*console.log(eleclick)
+        for(let i=0;i<element.length;i++){
+            console.log(element[i])
+        }*/
+        let flag = true
+        //console.log(element)
+        eleclick[0].addEventListener('click',()=>{
+            //console.log('working')
+            //console.log('working')
+            if(flag){
+            element[0].className = "";
+            element[0].className = "";
+            //console.log(element)
+            element[0].className = "";
+            element[0].className = "";
+            flag = false
+            }
+            else{
+                //console.log(anch)
+                anch[0].className = 'toselect'
+                anch[1].className = 'toselect'
+                anch[2].className = 'toselect'
+                anch[3].className = 'toselect'
+                
+                flag = true
+            }
+        })
+        
+        </script>
+</body>
+</html>

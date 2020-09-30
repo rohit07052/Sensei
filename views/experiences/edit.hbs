@@ -1,0 +1,29 @@
+<body id="edit-exp">
+
+<h3 class="had">Edit your experience</h3>
+<div class="row">
+    <form action="/experiences/{{experience._id}}" method="POST" class="col s12">
+        <input type="hidden" name="_method" value="PUT">
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="title" name="title" value = "{{experience.title}}">
+                <label for="title">Company</label>
+            </div>
+        </div>
+
+        
+
+        <div class="row">
+            <div class="input-field">
+                <!--<h5>Share your experience:</h5>-->
+                <textarea id="body" name="body">{{experience.body}}</textarea>
+            </div>
+        </div>
+
+        <div class="row">
+            <input type="submit" value="Edit & Save" class="btn" >
+            <a href="/dashboard" class="btn orange">Cancel</a>
+        </div>
+    </form>
+</div>
+</body>

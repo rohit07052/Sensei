@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/styles.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.11/paper-full.min.js" integrity="sha512-ehNJ9gpOQJn8EYlA3P1zUtfrh97G/6WNsjfPfpnMxbo6PX6UXHRj8Ny5MCd36w2eTPlvOSVuXLZmY+/VLVhI4A==" crossorigin="anonymous"></script>
+    <script type="text/paperscript" canvas="mycanvas"> 
+        var count = 500;
+        var path = new Path.Circle({
+            center: [0, 0],
+            radius: 5,
+            fillColor: 'white',
+            strokeColor: 'black'
+        });
+        var symbol = new Symbol(path);
+        for (var i = 0; i < count; i++) {
+            var center = Point.random() * view.size;
+            var placedSymbol = symbol.place(center);
+            placedSymbol.scale(i / count);
+        }
+        function onFrame(event) {
+            for (var i = 0; i < count; i++) {
+                var item = project.activeLayer.children[i];       
+                item.position.x += item.bounds.width / 20;
+                if (item.bounds.left > view.size.width) {
+                    item.position.x = -item.bounds.width;
+                }
+            }
+        }  
+    </script>
+</head>
+<body>
+    
+    <div class="container login-container">
+        <div class="card">
+            <div class="card-content">
+                {{{body}}}
+            </div>
+        </div>
+    </div>
+    <script src= 
+"https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"> 
+        </script> 
+
+    <!-- animations -->
+
+
+    <script>
+        var el = document.querySelectorAll('.btn-select')
+        var newl = document.querySelectorAll('.section')
+
+        const increase = () =>{
+            anime({
+                targets: newl,
+                //width :'100%',
+                scale: {
+                    delay: 500,
+                    value: 1.4
+                },
+                duration: 1500
+
+            })
+        }
+       /* const movehover = () =>{
+            console.log('mous')
+
+            anime({
+                targets: el,
+                //width :'300%',
+                scale: {
+                    delay:100,
+                    value: 1.4
+                },
+                duration: 100,
+                easing: 'easeInOutQuad'
+
+            })
+        }
+        const moveout = () =>{
+            console.log('mouseout')
+            
+            anime({
+                targets: el,
+                //width :'100%',
+                scale: {
+                    delay: 100,
+                    value: 1
+                },
+                duration: 100,
+                easing: 'easeInOutQuad'
+            })
+        }
+        */
+        increase()
+       // var btn = document.querySelectorAll('.btn-select')
+        //console.log(btn)
+       // console.log(btn)
+        //btn[0].addEventListener('mouseover',movehover)
+        //btn[0].addEventListener('mouseout',moveout)
+
+        var card = document.querySelectorAll('.card')
+        
+        console.log(card)
+        
+        anime({
+            targets: card,
+            borderRadius: ['20%', '0%'],
+        
+            duration: 1500,
+            easing: 'easeInOutQuad'
+        })
+        var h3 = document.querySelectorAll('h3')
+        var sen = document.querySelectorAll('.sen')
+        var fire = document.querySelectorAll('.fa-fire')
+        var fireWidth = fire[0].offsetWidth 
+        var textWidth = (sen[0].offsetWidth)
+        var divWidth = (h3[0].offsetWidth)
+        var travel = ((divWidth - textWidth)/2) - fireWidth
+        console.log(travel) 
+        anime({
+            targets: '.fa-fire',
+            translateX: travel,
+            scale: 2,
+            rotate: '1turn',
+            easing: 'easeInOutQuad'
+            
+        });
+        
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <canvas id="mycanvas">
+
+        
+    </canvas>
+    
+</body>
+</html>

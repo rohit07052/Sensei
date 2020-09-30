@@ -1,0 +1,35 @@
+<body id='profile'>
+
+    <h1 class='had'>{{name}}</h1>
+    <img src="{{image}}"  class="profile-image">
+    
+    {{#if experiences}}
+        <table class="striped table-profile" >
+         
+            <tbody>
+                {{#each experiences}}
+                <tr>
+                    <td><a href="/experiences/{{_id}}">{{title}}</a></td>
+                    <td>{{formatDate createdAt 'Do MMMM YYYY'}}</td>
+                    <td>
+                        <a href="/experiences/edit/{{_id}}" class="btn btn-float">
+                            <i class="fas fa-edit"></i>
+                        </a>
+
+                        <form action="/experiences/{{_id}}" method="POST" class="delete-form">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="btn red">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+            {{/each}}
+        </table>
+    {{else}}
+    <p>You have not shared any experience</p>
+
+    {{/if}}
+</body>
