@@ -34,11 +34,8 @@
         "morgan": "^1.10.0",
         "passport": "^0.4.1",
         "cross": "^1.0.0",
-        "passport-google-oauth20": "^2.0.0"
-    },
-    "devDependencies": {
-        "cross": "^1.0.0",
         "env": "0.0.2",
-        "nodemon": "^2.0.4"
-    }
+        "nodemon": "^2.0.4",
+        "passport-google-oauth20": "^2.0.0"
+    } =
 }
