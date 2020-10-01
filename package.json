@@ -37,5 +37,5 @@
         "env": "0.0.2",
         "nodemon": "^2.0.4",
         "passport-google-oauth20": "^2.0.0"
-    } =
+    }
 }
