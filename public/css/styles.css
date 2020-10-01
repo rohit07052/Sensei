@@ -40,7 +40,10 @@
 }
 
 .card {
-    background-color: rgb(240, 120, 64);
+    background-color: #1d86db;
+    box-shadow: 5px 10px 10px 10px rgb(133, 133, 133);
+    border-radius: 10%;
+    color: cornsilk;
 }
 
 .card-title {
@@ -96,7 +99,7 @@ html {
 }
 
 #mycanvas {
-    background-color: black;
+    background-color: white;
     height: 100%;
     width: 100%;
     z-index: -1;
@@ -170,6 +173,15 @@ input[type=text] {
     background: rgb(14, 3, 80);
     height: 93%;
     width: 93%;
+    font-family: 'Cutive Mono';
+}
+
+.card-title {
+    font-family: 'Cutive Mono';
+}
+
+.stats-show p {
+    font-family: 'Cutive Mono';
 }
 
 .enlarge {
@@ -384,16 +396,7 @@ nav ul a {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 5%;
-    animation: cirsq 2s ease-in-out infinite alternate;
-}
-
-@keyframes cirsq {
-    from {
-        border-radius: 5%;
-    }
-    to {
-        border-radius: 50%;
-    }
+    border-radius: 50%;
 }
 
 .table-profile {
@@ -421,7 +424,7 @@ nav ul a {
 .card-show {
     height: 100%;
     width: 100%;
-    background: #fff;
+    background: #ffffcd;
     box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
     position: relative;
 }
