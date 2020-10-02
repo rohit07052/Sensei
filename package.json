@@ -1,34 +1,45 @@
 {
-  "name": "sensei",
-  "version": "1.0.0",
-  "description": "A platform where anyone can share his/her experience",
-  "main": "app.js",
-  "scripts": {
-    "start": "cross-env NODE_ENV=production node app",
-    "dev": "cross-env NODE_ENV=development nodemon app"
-  },
-  "author": "Rohit Kumar Singh",
-  "license": "ISC",
-  "dependencies": {
-    "animejs": "^3.2.0",
-    "body-parser": "^1.19.0",
-    "connect-mongo": "^3.2.0",
-    "cookie-parser": "^1.4.5",
-    "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "express-handlebars": "^5.1.0",
-    "express-session": "^1.17.1",
-    "method-override": "^3.0.0",
-    "moment": "^2.27.0",
-    "mongoose": "^5.10.3",
-    "morgan": "^1.10.0",
-    "passport": "^0.4.1",
-    "passport-google-oauth20": "^2.0.0"
-  },
-  "devDependencies": {
-    "cross": "^1.0.0",
-    "env": "0.0.2",
-    "nodemon": "^2.0.4"
-  }
+    "name": "sensei",
+    "version": "1.0.0",
+    "description": "A platform where anyone can share his/her experience",
+    "main": "app.js",
+    "engines": {
+        "node": ">=10.0.0",
+        "npm": ">=6.0.0"
+    },
+    "scripts": {
+
+        "client-install": "npm install --prefix client",
+        "build": "concurrently \"cd client && npm run build\" \"npm build \"",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "client": "cd ./client && npm start ",
+        "server-prod": "node app.js",
+        "server": "nodemon app.js",
+        "start": "node app.js",
+        "start:dev": "concurrently --kill-others  \"npm run client\" \"npm run server\" ",
+        "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+
+    },
+    "author": "Rohit Kumar Singh",
+    "license": "ISC",
+    "dependencies": {
+        "animejs": "^3.2.0",
+        "body-parser": "^1.19.0",
+        "connect-mongo": "^3.2.0",
+        "cookie-parser": "^1.4.5",
+        "cors": "^2.8.5",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "express-handlebars": "^5.1.0",
+        "express-session": "^1.17.1",
+        "method-override": "^3.0.0",
+        "moment": "^2.27.0",
+        "mongoose": "^5.10.3",
+        "morgan": "^1.10.0",
+        "passport": "^0.4.1",
+        "cross": "^1.0.0",
+        "env": "0.0.2",
+        "nodemon": "^2.0.4",
+        "passport-google-oauth20": "^2.0.0"
+    }
 }

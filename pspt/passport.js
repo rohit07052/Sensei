@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 
 
 //inporting user model
-const User = require('../models/User')
+const User = require('../models/user')
 
 
 module.exports = (passport) => {
