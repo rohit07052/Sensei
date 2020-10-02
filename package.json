@@ -3,6 +3,10 @@
     "version": "1.0.0",
     "description": "A platform where anyone can share his/her experience",
     "main": "app.js",
+    "engines": {
+        "node": ">=10.0.0",
+        "npm": ">=6.0.0"
+    },
     "scripts": {
 
         "client-install": "npm install --prefix client",
