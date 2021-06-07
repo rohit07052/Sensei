@@ -60,8 +60,6 @@ router.get('/:id', Auth, async(req, res) => {
 
 router.put("/:id", Auth, async(req, res) => {
     try {
-        console.log('yoyoy')
-
         var experience = await Exp.findById(req.params.id).lean()
         console.log('lisn')
         console.log(experience)
